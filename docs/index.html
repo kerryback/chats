@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; img-src 'self' data:; form-action 'none'; base-uri 'none'">
+<title>Chats</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main id="gate" class="gate">
+  <form id="gate-form" class="gate-form">
+    <h1>Chats</h1>
+    <label for="password">Password</label>
+    <input id="password" type="password" autocomplete="current-password" required autofocus>
+    <button type="submit" id="unlock">Open</button>
+    <p id="gate-error" class="gate-error" role="alert"></p>
+  </form>
+</main>
+
+<div id="app" hidden>
+  <header class="bar">
+    <button id="older" class="arrow" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg>
+    </button>
+    <button id="picker" class="picker" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="panel">
+      <span id="picker-date" class="picker-date"></span>
+      <span id="picker-title" class="picker-title"></span>
+      <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg>
+    </button>
+    <button id="newer" class="arrow" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8"/></svg>
+    </button>
+  </header>
+
+  <section id="panel" class="panel" role="dialog" aria-label="Choose a conversation" hidden>
+    <div class="panel-top">
+      <input id="search" type="search" placeholder="Search titles" aria-label="Search titles" autocomplete="off">
+      <span id="position" class="position"></span>
+      <button id="lock" class="lock" type="button">Lock</button>
+    </div>
+    <div id="months" class="months" role="group" aria-label="Months"></div>
+    <div id="list" class="list"></div>
+  </section>
+
+  <main id="reader" class="reader" tabindex="-1"></main>
+</div>
+
+<script src="vendor/marked.min.js"></script>
+<script src="vendor/purify.min.js"></script>
+<script src="vendor/katex/katex.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

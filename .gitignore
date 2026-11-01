@@ -1,0 +1,9 @@
+# Plaintext must never reach the public repo. Only docs/ holds published data.
+conversations/
+Claude_conversations_complete.md
+.env
+*.md
+!README.md
+.DS_Store
+node_modules/
+.playwright-mcp/
