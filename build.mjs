@@ -14,7 +14,7 @@ const ITERATIONS = 600000;
 const SELECTIVE_PERIODS = /^(2025-|2026-01-|2026-02-|2026-03-|2026-04-02)/;
 const KEEP_DATES = new Set(['2025-09-03', '2025-10-15', '2026-01-22', '2026-01-24', '2026-01-26', '2026-03-24', '2026-03-26', '2026-03-30']);
 const KEEP_CHATS = new Set(['142']);
-const DROP_CHATS = new Set(['178', '179', '180', '229', '230', '234', '235']);
+const DROP_CHATS = new Set(['178', '179', '180', '229', '230', '234', '235', '251', '255', '270', '305', '309', '319', '378', '383', '397']);
 
 function readPassword() {
   const env = fs.existsSync(ENV_FILE) ? fs.readFileSync(ENV_FILE, 'utf8') : '';
