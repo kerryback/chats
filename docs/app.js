@@ -2,6 +2,7 @@
 
 const $ = id => document.getElementById(id);
 const KEY_SLOT = 'chats-key';
+const OPENING_CHAT = 143;
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 let key = null;
@@ -382,7 +383,8 @@ async function enterApp() {
   $('app').hidden = false;
   renderMonths();
   const fromHash = indexFromHash();
-  await show(fromHash >= 0 ? fromHash : chats.length - 1);
+  const opening = chats.findIndex(c => c.n === OPENING_CHAT);
+  await show(fromHash >= 0 ? fromHash : opening >= 0 ? opening : chats.length - 1);
 }
 
 function lock() {
