@@ -14,6 +14,7 @@ const ITERATIONS = 600000;
 const SELECTIVE_PERIODS = /^(2025-|2026-01-|2026-02-|2026-03-|2026-04-02)/;
 const KEEP_DATES = new Set(['2025-09-03', '2025-10-15', '2026-01-22', '2026-01-24', '2026-01-26', '2026-03-24', '2026-03-26', '2026-03-30']);
 const KEEP_CHATS = new Set(['142']);
+const DROP_CHATS = new Set(['178', '179', '180', '229', '230', '234', '235']);
 
 function readPassword() {
   const env = fs.existsSync(ENV_FILE) ? fs.readFileSync(ENV_FILE, 'utf8') : '';
@@ -135,6 +136,7 @@ function build() {
     const m = name.match(/^(\d{3}) (\d{4}-\d{2}-\d{2}) (.+)\.md$/);
     if (!m) throw new Error(`Unexpected file name: ${name}`);
     if (SELECTIVE_PERIODS.test(m[2]) && !KEEP_DATES.has(m[2]) && !KEEP_CHATS.has(m[1])) continue;
+    if (DROP_CHATS.has(m[1])) continue;
     const md = fs.readFileSync(path.join(SRC, name), 'utf8');
     const title = (md.match(/^# (.+)$/m) || [])[1] || m[3];
     const conversation = parseConversation(md);

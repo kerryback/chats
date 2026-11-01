@@ -10,7 +10,7 @@ The repo holds only encrypted data. `docs/data/` is AES-256-GCM ciphertext, with
 2. Run `node build.mjs`.
 3. Commit and push `docs/`.
 
-The build skips files from 2025, from January through March 2026, and from April 2, 2026, except the dates in `KEEP_DATES` and the conversation numbers in `KEEP_CHATS` in `build.mjs`.
+The build skips files from 2025, from January through March 2026, and from April 2, 2026, except the dates in `KEEP_DATES` and the conversation numbers in `KEEP_CHATS` in `build.mjs`. It also skips the conversation numbers in `DROP_CHATS`.
 
 ## Change the password
 
